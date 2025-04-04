@@ -3,9 +3,9 @@
 import { motion } from "framer-motion"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
-import HomePage from "@/components/pages/home-page"
+import ProvidersPage from "@/components/pages/providers-page"
 
-export default function Home() {
+export default function Providers() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -16,11 +16,10 @@ export default function Home() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <HomePage />
+          <ProvidersPage />
         </motion.div>
       </main>
       <Footer />
     </div>
   )
-}
-
+} 

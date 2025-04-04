@@ -4,7 +4,7 @@ import type React from "react"
 
 import { motion } from "framer-motion"
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react"
-import { Link } from "react-router-dom"
+import Link from "next/link"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -97,7 +97,7 @@ function SocialIcon({ icon, href, label }: { icon: React.ReactNode; href: string
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <li>
-      <Link to={href} className="text-gray-500 hover:text-indigo-600 transition-colors">
+      <Link href={href} className="text-gray-500 hover:text-indigo-600 transition-colors">
         {children}
       </Link>
     </li>

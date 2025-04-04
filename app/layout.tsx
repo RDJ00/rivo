@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata = {
   title: "RivoHome - Smart Home Maintenance",
   description: "Manage home maintenance with smart reminders, service bookings, and document storage.",
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -24,7 +24,3 @@ export default function RootLayout({
     </html>
   )
 }
-
-
-
-import './globals.css'

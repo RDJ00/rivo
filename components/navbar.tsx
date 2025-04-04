@@ -1,26 +1,26 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
-import { Link, useLocation } from "react-router-dom"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const location = useLocation()
+  const pathname = usePathname()
 
   const toggleMenu = () => setIsOpen(!isOpen)
 
-  const isActive = (path: string) => location.pathname === path
+  const isActive = (path: string) => pathname === path
 
   return (
     <nav className="bg-white shadow-sm border-b border-gray-100">
       <div className="container py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <Link to="/" className="flex items-center">
+            <Link href="/" className="flex items-center">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex items-center">
                 <span className="text-2xl font-bold text-indigo-600">Rivo</span>
                 <span className="text-2xl font-bold text-gray-900">Home</span>
@@ -30,10 +30,10 @@ export default function Navbar() {
 
           {/* Desktop navigation */}
           <div className="hidden md:flex md:items-center md:space-x-8">
-            <NavLink to="/" isActive={isActive("/")}>
+            <NavLink href="/" isActive={isActive("/")}>
               For Homeowners
             </NavLink>
-            <NavLink to="/providers" isActive={isActive("/providers")}>
+            <NavLink href="/providers" isActive={isActive("/providers")}>
               For Service Providers
             </NavLink>
             <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="btn-primary">
@@ -67,10 +67,10 @@ export default function Navbar() {
           className="md:hidden"
         >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <MobileNavLink to="/" isActive={isActive("/")} onClick={toggleMenu}>
+            <MobileNavLink href="/" isActive={isActive("/")} onClick={toggleMenu}>
               For Homeowners
             </MobileNavLink>
-            <MobileNavLink to="/providers" isActive={isActive("/providers")} onClick={toggleMenu}>
+            <MobileNavLink href="/providers" isActive={isActive("/providers")} onClick={toggleMenu}>
               For Service Providers
             </MobileNavLink>
             <div className="pt-4">
@@ -85,9 +85,9 @@ export default function Navbar() {
   )
 }
 
-function NavLink({ to, children, isActive }: { to: string; children: React.ReactNode; isActive: boolean }) {
+function NavLink({ href, children, isActive }: { href: string; children: React.ReactNode; isActive: boolean }) {
   return (
-    <Link to={to} className="relative">
+    <Link href={href} className="relative">
       <span className={`text-base font-medium ${isActive ? "text-indigo-600" : "text-gray-500 hover:text-gray-900"}`}>
         {children}
       </span>
@@ -103,14 +103,14 @@ function NavLink({ to, children, isActive }: { to: string; children: React.React
 }
 
 function MobileNavLink({
-  to,
+  href,
   children,
   isActive,
   onClick,
-}: { to: string; children: React.ReactNode; isActive: boolean; onClick: () => void }) {
+}: { href: string; children: React.ReactNode; isActive: boolean; onClick: () => void }) {
   return (
     <Link
-      to={to}
+      href={href}
       className={`block px-3 py-2 rounded-md text-base font-medium ${
         isActive ? "bg-indigo-50 text-indigo-600" : "text-gray-500 hover:bg-gray-50 hover:text-gray-900"
       }`}
