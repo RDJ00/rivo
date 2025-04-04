@@ -6,11 +6,15 @@
 - [x] Update README.md with project information
 - [x] Fix routing issues
 - [x] Build production version
-- [ ] Choose and set up hosting platform
+- [ ] Deploy to Vercel
+  - [ ] Create/log in to Vercel account
+  - [ ] Connect GitHub repository
+  - [ ] Configure project settings
+  - [ ] Deploy
 
 ## Medium Priority
 - [ ] Set up custom domain
-- [ ] Implement environmental variables
+- [ ] Configure environment variables (if needed)
 - [ ] Set up CI/CD pipeline
 - [ ] Add comprehensive documentation
 

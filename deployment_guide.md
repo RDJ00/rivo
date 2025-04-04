@@ -15,30 +15,46 @@
 
 ## Prerequisites
 - [x] GitHub account for version control - Already linked to GitHub
-- [ ] Hosting platform account (Vercel, Netlify, AWS, etc.)
-- [ ] Domain name (optional, but recommended for production)
+- [ ] Vercel account for hosting
 
 ## Environment Configuration
-- [ ] Set up environment variables
-- [ ] Configure any API keys needed for third-party services
-- [ ] Create .env.local file for local development (and add to .gitignore)
+- [ ] Set up environment variables in Vercel dashboard (if needed)
 
 ## Build Process
 - [x] Run linting checks: Skipped (configured to skip in next.config.mjs)
 - [x] Run build process: `pnpm build` - Successful
 - [x] Test the production build locally: `pnpm start` - Working on http://localhost:3000
 
-## Next Steps for Deployment
-- [ ] Choose a hosting platform (Vercel recommended for Next.js)
-- [x] Push updated code to GitHub - Completed with message "Fix routing issues and prepare for deployment"
-- [ ] Connect hosting platform to GitHub repository
-- [ ] Configure deployment settings
+## Deployment to Vercel
+- [ ] Sign up/Log in to Vercel: https://vercel.com/
+- [ ] Import GitHub repository:
+  - Click "Add New..." > "Project"
+  - Select the GitHub repository (rivo)
+  - Authorize Vercel to access the repository if needed
+- [ ] Configure project settings:
+  - Framework Preset: Next.js (should be auto-detected)
+  - Build Command: `next build` (default)
+  - Install Command: `pnpm install` 
+  - Output Directory: `.next` (default)
+- [ ] Add environment variables (if needed)
+- [ ] Click "Deploy"
+- [ ] Wait for the deployment to complete
+
+## Post-Deployment Tasks
+- [ ] Set up custom domain (if needed):
+  - Go to project settings > Domains
+  - Add your custom domain
+  - Configure DNS settings as directed by Vercel
+- [ ] Verify deployment works correctly
+- [ ] Set up continuous deployment for future updates
+
+## Next Steps
+- [ ] Add monitoring or analytics
+- [ ] Set up error tracking
+- [ ] Consider performance optimizations
+- [ ] Plan for future feature development
 
 ## Deployment Options
-- [ ] Vercel (recommended for Next.js projects):
-  - Connect GitHub repository
-  - Configure build settings
-  - Set environment variables
 - [ ] Netlify:
   - Connect GitHub repository
   - Set build command: `npm run build`
@@ -46,12 +62,6 @@
 - [ ] Traditional hosting:
   - Build the project: `npm run build`
   - Deploy the `.next` folder and other static assets
-
-## Post-Deployment Tasks
-- [ ] Set up custom domain
-- [ ] Configure SSL certificate
-- [ ] Set up monitoring and analytics
-- [ ] Configure CI/CD pipeline for automated deployments
 
 ## Performance Optimization
 - [ ] Enable caching strategies
